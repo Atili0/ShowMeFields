@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../../ClientGlobalContext.js.aspx" type="text/javascript"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body data-ng-controller="mainController" data-ng-init="init()">
+    
+        <div class="toolbar">
+            <div class="toolbar-section">
+                <span data-ng-repeat="char in aryLetter">
+                    <button class="toolbar-button primary">
+                        {{ char }}
+                    </button>
+                </span>
+            </div>
+        </div>
+
+<div class="container">
+
+    <div class="form-group has-warning has-feedback">
+        <label class="control-label" for="search">Filter by :</label>
+        <input type="search" ng-model="q" class="form-control" id="search" />
+        <span class="glyphicon glyphicon-eye-open form-control-feedback" aria-hidden="true"></span>
+        <span id="inputWarning2Status" class="sr-only">(warning)</span>
+    </div>
+
+    <table class="table">
+        <tbody>
+        <tr data-ng-repeat="value in aryValueLetter | filter:q as results">
+            <td>{{ value.name }}</td>
+            <td>{{ value.value }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+    
+
+    <!--https://metroui.org.ua/buttons.html-->
+    <script src="../../../WebResources/dx_/Scripts/requirejs/require.js" data-main="../../../WebResources/dx_/Scripts/main.js"></script>
+</body>
+</html>

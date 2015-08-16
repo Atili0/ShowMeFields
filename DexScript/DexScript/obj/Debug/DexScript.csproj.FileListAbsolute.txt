@@ -1,0 +1,6 @@
+C:\CODE\DexScript\DexScript\DexScript\bin\DexScript.dll.config
+C:\CODE\DexScript\DexScript\DexScript\bin\DexScript.dll
+C:\CODE\DexScript\DexScript\DexScript\bin\DexScript.pdb
+C:\CODE\DexScript\DexScript\DexScript\obj\Debug\DexScript.csprojResolveAssemblyReference.cache
+C:\CODE\DexScript\DexScript\DexScript\obj\Debug\DexScript.dll
+C:\CODE\DexScript\DexScript\DexScript\obj\Debug\DexScript.pdb
