@@ -1,4 +1,4 @@
-﻿
+
 define(function () {
     var fieldController = angular.module('fieldController', {});
     fieldController.controller('mainController', function ($scope) {
@@ -7,10 +7,24 @@ define(function () {
         $scope.aryValueLetter = [];
         $scope.values = [];
 
+        function gerUrlVarsCrm(name) {
+            var vars = [], hash;
+            var href = decodeURIComponent(window.location.href.replace('Data=', ''));
+            var hashes = href.slice(href.indexOf('?') + 1).split('&');
+
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars[name];
+        };
+
+
         function getValueField() {
             SDK.JQuery.retrieveRecord(
-                "f090ddee-d441-e511-9402-00155d5c450b",
-                "dx_test",
+                gerUrlVarsCrm("entityId"),
+                gerUrlVarsCrm("entityName"),
                 null, null,
                 function(account) {
                     $scope.values = account;
@@ -89,8 +103,7 @@ define(function () {
             var amp = mdq.AttributeMetadataProperties;
 
             var entityFilter = new mdq.MetadataFilterExpression(mdq.LogicalOperator.And);
-            //Xrm.Page.data.entity.getEntityName()
-            entityFilter.addCondition(semp.LogicalName, mdq.MetadataConditionOperator.Equals, "dx_test");
+            entityFilter.addCondition(semp.LogicalName, mdq.MetadataConditionOperator.Equals, gerUrlVarsCrm("entityName"));
             var entityProperties = new mdq.MetadataPropertiesExpression(false,
             [
                 emp.Attributes,
